@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: annotation-backend
+  namespace: jamal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: annotation-backend
+  template:
+    metadata:
+      labels:
+        app: annotation-backend
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-creds
+
+      containers:
+        - name: backend
+          image: b2bomber/annotation:v1.3
+          imagePullPolicy: Always
+          command:
+            - python
+            - manage.py
+            - runserver
+            - "0.0.0.0:8000"
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+          envFrom:
+            - secretRef:
+                name: annotation-backend-secret
+            - configMapRef:
+                name: annotation-backend-config
+          volumeMounts:
+            - name: media-volume
+              mountPath: /app/media
+
+      volumes:
+        - name: media-volume
+          persistentVolumeClaim:
+            claimName: annotation-media-pvc
+

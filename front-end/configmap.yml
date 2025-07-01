@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: annotation-frontend-config
+  namespace: jamal
+data:
+  VITE_BACKEND_URL: http://appbackend.forbmax.ai
+    #VITE_BACKEND_URL: "/api"

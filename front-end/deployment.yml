@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: annotation-frontend
+  namespace: jamal
+  labels:
+    app: annotation-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: annotation-frontend
+  template:
+    metadata:
+      labels:
+        app: annotation-frontend
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-creds
+      containers:
+        - name: frontend
+          image: b2bomber/annotation:f10.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          envFrom:
+            - configMapRef:
+                name: annotation-frontend-config

@@ -4,9 +4,10 @@ metadata:
   name: annotation-media-pvc
   namespace: jamal
 spec:
-  storageClassName: nfs-client
+  storageClassName: local-path   # <-- using hostPath dynamic provisioning
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce              # <-- RWO is required for local-path
   resources:
     requests:
       storage: 10Gi
+

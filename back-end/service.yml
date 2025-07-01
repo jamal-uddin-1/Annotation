@@ -1,20 +1,15 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: v1
+kind: Service
 metadata:
-  name: backend-app
-  namespace: argocd
+  name: annotation-backend-svc
+  namespace: jamal
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/jamal-uddin-1/Annotation.git
-    targetRevision: main
-    path: back-end
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: jamal                # <-- Ensure this matches the YAML manifests
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+  type: NodePort
+  selector:
+    app: annotation-backend
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      nodePort: 30081   # ✅ changed to unused port (must be between 30000–32767)
+

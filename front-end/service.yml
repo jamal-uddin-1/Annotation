@@ -4,7 +4,7 @@ metadata:
   name: annotation-frontend
   namespace: jamal
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: annotation-frontend
   ports:

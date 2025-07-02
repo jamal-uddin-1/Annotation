@@ -4,5 +4,5 @@ metadata:
   name: annotation-frontend-config
   namespace: jamal
 data:
-  VITE_BACKEND_URL: http://appbackend.forbmax.ai
+  VITE_BACKEND_URL: http://192.168.18.196:30081/
     #VITE_BACKEND_URL: "/api"

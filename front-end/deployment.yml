@@ -19,7 +19,7 @@ spec:
         - name: dockerhub-creds
       containers:
         - name: frontend
-          image: b2bomber/annotation:f-18
+          image: b2bomber/annotation:f-19
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

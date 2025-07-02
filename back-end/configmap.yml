@@ -16,7 +16,8 @@
      # http://192.168.18.104:7173
      # http://192.168.18.164:8025
      # http://192.168.18.11:30080
-   CORS_ALLOWED_ORIGINS: "http://192.168.18.196:32767,http://appbackend.forbmax.ai,http://annotation.forbmax.ai,http://192.168.18.11:30080,http://192.168.18.11:31000,http://192.168.18.196:30081,http://192.168.18.7:31000,http://192.168.18.7:30152,http://192.168.18.7:30113,http://192.168.18.104:7173,http://192.168.18.164:8025"
+   #CORS_ALLOWED_ORIGINS: "http://192.168.18.196:32767,http://appbackend.forbmax.ai,http://annotation.forbmax.ai,http://192.168.18.11:30080,http://192.168.18.11:31000,http://192.168.18.196:30081,http://192.168.18.7:31000,http://192.168.18.7:30152,http://192.168.18.7:30113,http://192.168.18.104:7173,http://192.168.18.164:8025"
+   CORS_ALLOW_ALL_ORIGINS: "True"
    CORS_ALLOW_CREDENTIALS: "True"
    SR_API: "http://192.168.18.164:8027/Speaker_Recognition/"
    STT_API: "http://192.168.18.81:2000/transcribe_video/"

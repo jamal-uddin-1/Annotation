@@ -4,7 +4,7 @@
    name: annotation-backend-config
    namespace: jamal
  data:
-   DEBUG: "True"
+   DEBUG: "true"
    ALLOWED_HOSTS: "appbackend.forbmax.ai,annotation.forbmax.ai,192.168.18.196,192.168.18.11,192.168.18.212,localhost,127.0.0.1,192.168.18.7,192.168.18.164"
      #   CORS_ALLOWED_ORIGINS: |
      # http://annotation.forbmax.ai
